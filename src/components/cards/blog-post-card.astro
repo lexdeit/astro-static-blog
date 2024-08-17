@@ -1,29 +1,30 @@
 ---
-interface Props {
-    imageSrc?: string;
-    title?: string;
-    date?: string;
-    postHref?: string;
-}
+const { frontmatter, url, ...rest } = Astro.props;
 
-const { imageSrc, title, date, postHref } = Astro.props;
+const { title, description, date, author, image, tags } = frontmatter;
+
+import { Formatter } from "../../utils/formatter";
 ---
 
-<div class="lg:flex hover:cursor-pointer border border-neutral-900 p-4 rounded-xl">
+<div
+    class="lg:flex hover:cursor-pointer border border-neutral-900 p-4 rounded-xl"
+>
     <img
         class="object-cover w-full h-56 rounded-lg lg:w-64"
-        src={imageSrc}
+        src={image}
         alt={title}
     />
 
     <div class="flex flex-col justify-between py-6 lg:mx-6">
         <a
-            href={postHref}
+            href={url}
             class="text-xl font-semibold text-gray-800 hover:underline dark:text-white"
         >
-            {title}
+            {description}
         </a>
 
-        <span class="text-sm text-gray-500 dark:text-gray-300">{date}</span>
+        <span class="text-sm text-gray-500 dark:text-neutra-500 capitalize"
+            >{Formatter.formatDate(date)}</span
+        >
     </div>
 </div>
