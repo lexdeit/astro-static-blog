@@ -18,9 +18,12 @@ const blogPosts = await getCollection("blog", (post) => !post.data.isDraft);
             >
                 {title}
             </h1>
-            <a href="/blog/1" class="hover:underline text-neutral-600"
-                >Blog paginado</a
-            >
+            <a href="/blog/1" class="hover:underline text-neutral-600">
+                Blog paginado
+            </a>
+            <a href="/authors" class="hover:underline text-neutral-600">
+                Autores
+            </a>
             <div class="grid grid-cols-1 gap-4 mt-8 md:mt-16 md:grid-cols-2">
                 {blogPosts.map((post) => <TypeBlogPost post={post} />)}
             </div>
