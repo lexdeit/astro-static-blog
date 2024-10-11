@@ -20,6 +20,12 @@ const { title, ...rest } = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
         <ViewTransitions />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Emmanuel Blog"
+            href={new URL("rss.xml", Astro.site)}
+        />
     </head>
     <body class="bg-neutral-950 text-neutral-200">
         <a href="/" id="btn-back">Regresar</a>
