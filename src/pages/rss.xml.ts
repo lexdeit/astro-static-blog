@@ -7,6 +7,7 @@ export const GET: APIRoute = async ({ params, request, site }) => {
     const posts = await getCollection('blog');
 
     return rss({
+        stylesheet: '/styles/rss.xsl',
         title: 'Emmanuel`s Blog',
         description: 'A humble Astronaut’s guide to the stars',
         site: site ?? '',
