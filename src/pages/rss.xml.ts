@@ -14,6 +14,9 @@ export const GET: APIRoute = async ({ params, request, site }) => {
         stylesheet: '/styles/rss.xsl',
         title: 'Emmanuel`s Blog',
         description: 'A humble Astronaut’s guide to the stars',
+        xmlns: {
+            media: 'http://search.yahoo.com/mrss/',
+        },
         site: site ?? '',
         items: posts.map(({ data, slug, body }) => ({
             title: data.title,
@@ -22,9 +25,9 @@ export const GET: APIRoute = async ({ params, request, site }) => {
             link: `posts/${slug}`,
             content: sanitizeHtml(parser.render(body), {
                 allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
-              }),
-              
-              customData: `<media:content
+            }),
+
+            customData: `<media:content
                   type="image/${data.image.format === 'jpg' ? 'jpeg' : 'png'}"
                   width="${data.image.width}"
                   height="${data.image.height}"

@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 
 bun.lockb
+.bun.lockb
+./bun.lockb
