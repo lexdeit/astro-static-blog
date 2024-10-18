@@ -3,7 +3,7 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import sanitizeHtml from "sanitize-html";
 import MarkdownIt from 'markdown-it';
-
+//Este archivo retorna un xml para el newslester
 const parser = new MarkdownIt();
 
 export const GET: APIRoute = async ({ params, request, site }) => {
