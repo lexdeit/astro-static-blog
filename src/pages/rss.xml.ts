@@ -8,6 +8,7 @@ const parser = new MarkdownIt();
 
 export const GET: APIRoute = async ({ params, request, site }) => {
 
+    //Esta funcion obtiene la coleccion de todos los blogs
     const posts = await getCollection('blog');
 
     return rss({
